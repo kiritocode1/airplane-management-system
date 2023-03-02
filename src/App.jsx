@@ -6,6 +6,9 @@ import axios from 'axios';
 
 function App() {
   const [ databro, setdata ] = useState(null); 
+  const [ icao, seticao ] = useState(null); 
+  const [ iata, setiata] = useState(null); 
+
   const lat = 19.0760 
   const long = 72.8777
 
@@ -22,7 +25,11 @@ function App() {
 };
 axios.request(options).then(function (response) {
   console.log(response.data);
-  setdata(response?.data.items); 
+  setdata(response?.data.items);
+
+  seticao(response?.data.items[ 0 ].icao); 
+  setiata(response?.data.items[ 0 ].iata); 
+
 
 }).catch(function (error) {
 	console.error(error);
@@ -30,15 +37,7 @@ axios.request(options).then(function (response) {
   }, [])
   return (
     <div className="App">
-
-      <div>{
-      databro[0]?.icao
-      
-      }</div>
-
-      <div>
-        hello wofld 
-      </div>
+      <input type="text"  />
     </div>
   )
 }
