@@ -55,7 +55,7 @@ axios.request(options).then(function (response) {
     
       <div>{ icao }</div>
       {/* developer side  */ }
-      <div>JSON.stringify(databro)</div>
+      <div>{JSON.stringify(databro)}</div>
     </div>
   )
 }
