@@ -9,20 +9,25 @@ function App() {
   const [ icao, seticao ] = useState(null); 
   const [ iata, setiata] = useState(null); 
 
+//! change these 2 numbers 🤡
+  const [ lattitude, setlattitude ] = useState(19.0760); 
+  const [longitude, setlongitude] = useState(72.8777);
 
-const [state, setstate] = useState()
+  const handlelatitude = (e) => {
+    e.preventDefault(); 
+    setlattitude(e.target.value); 
+}
+  const handlelongitude = (e) => {
+    e.preventDefault(); 
+    setlongitude(e.target.value); 
+}
 
-
-
-
-  const lat = 19.0760 
-  const long = 72.8777
 
   useEffect(() => {
 
   const options = {
   method: 'GET',
-  url: `https://aerodatabox.p.rapidapi.com/airports/search/location/${lat}/${long}/km/100/16`,
+  url: `https://aerodatabox.p.rapidapi.com/airports/search/location/${lattitude}/${longitude}/km/100/16`,
   params: {withFlightInfoOnly: 'false'},
   headers: {
     'X-RapidAPI-Key': '461526573emsh333436890e661d4p122b96jsn728ba2bdf38b',
@@ -44,12 +49,13 @@ axios.request(options).then(function (response) {
   return (
     <div className="App">
 
-      <input type="text" />
+      <input type="text" value={lattitude} onSubmit={ e => handlelatitude(e) } />
 
-      <input type="text"  />
+      <input type="text" onChange={e => handlelongitude(e)} />
     
-      <div>{icao }</div>
-
+      <div>{ icao }</div>
+      {/* developer side  */ }
+      <div>JSON.stringify(databro)</div>
     </div>
   )
 }
