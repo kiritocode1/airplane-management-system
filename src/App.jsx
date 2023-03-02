@@ -9,6 +9,12 @@ function App() {
   const [ icao, seticao ] = useState(null); 
   const [ iata, setiata] = useState(null); 
 
+
+const [state, setstate] = useState()
+
+
+
+
   const lat = 19.0760 
   const long = 72.8777
 
@@ -37,7 +43,13 @@ axios.request(options).then(function (response) {
   }, [])
   return (
     <div className="App">
+
+      <input type="text" />
+
       <input type="text"  />
+    
+      <div>{icao }</div>
+
     </div>
   )
 }
